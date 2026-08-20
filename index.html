@@ -4,136 +4,311 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV - Intriago Mendoza Roberto Miguel</title>
-    <link rel="stylesheet" href="style.css">    
-</head>
+    <style>
+        /* ==========================================================================
+           1. REGISTRO DE FUENTES Y VARIABLES GLOBALES
+           ========================================================================== */
+        @import url('https://googleapis.com');
 
-<body>
+        :root {
+            --bg-main: #f1f5f9;          /* Fondo suave general */
+            --bg-card: #ffffff;          /* Fondo blanco para las secciones */
+            --primary: #1e3a8a;          /* Azul marino elegante */
+            --primary-light: #eff6ff;    /* Azul claro de fondo */
+            --accent: #2563eb;           /* Azul eléctrico para enlaces/detalles */
+            --text-main: #1e293b;        /* Texto principal casi negro */
+            --text-muted: #64748b;       /* Texto secundario gris */
+            --border: #e2e8f0;           /* Bordes sutiles */
+            --radius: 12px;              /* Esquinas redondeadas modernas */
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+        }
 
-    <header>
-        <a name="arriba"></a>
-        <h1>Curriculum Vitae</h1>
-        <h2>Intriago Mendoza Roberto Miguel</h2>
-        <p>Estudiante - Administrador - Docente</p>
+        /* ==========================================================================
+           2. ESTILOS BASE Y CONFIGURACIÓN DINÁMICA
+           ========================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        <img src="imagenes/FotoCarnet.jpg" alt="Fotografía de perfil de Intriago Mendoza Roberto Miguel" width="200">
+        html {
+            scroll-behavior: smooth; /* Desplazamiento suave al dar clic al menú */
+        }
 
-        <nav>
-            <h3>Menú de navegación</h3>
-            <a href="#perfil"><img src="imagenes/icons/perfil.png">  Perfil</a> |
-            <a href="#formacion"><img src="imagenes/icons/Estudios.png"> Formación Académica</a> |
-            <a href="#experiencia"><img src="imagenes/icons/trabajo.png"> Experiencia</a> |
-            <a href="#docencia"><img src="imagenes/icons/docente.png"> Docencia</a> |
-            <a href="#publicaciones"><img src="imagenes/icons/publicaciones.png"> Publicaciones</a> |
-            <a href="#contacto"><img src="imagenes/icons/Contacto.png"> Contacto</a>
-        </nav>
-    </header>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
 
-    <main>
+        /* Redirecciones de "Volver arriba" */
+        a[href="#arriba"] {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 1rem;
+            transition: transform 0.2s ease;
+        }
 
-        <section>
-            <a name="perfil"></a>
-            <h2>Perfil Profesional</h2>
-            <p>
-                Primera prueba ........    -     ....  Roberto Miguel Intriago Mendoza es administrador de Imprenta Siva desde el año 2021,
-                con experiencia en diseño gráfico(10 años), administración(13 años), docencia (6 años)
-                y manejo de cultivos de palma aceitera (7 años).
-            </p>
-            <p><a href="#arriba">Volver arriba</a></p>
-        </section>
+        a[href="#arriba"]:hover {
+            transform: translateY(-2px);
+        }
 
-        <section>
-            <a name="formacion"></a>
-            <h2>Formación Académica</h2>
+        /* Ocultar los enlaces ancla vacíos que rompen espacios */
+        a[name] {
+            display: block;
+            position: relative;
+            top: -20px; /* Evita que el menú tape el título al hacer scroll */
+        }
 
-            <ol>
-                <li>
-                    Bachiller en Ciencias "Físico Matemático".
-                    UE Fisco Misional "Juan XXIII". Quinindé - Esmeraldas, Ecuador, 2004.
-                </li>
-                <li>
-                    Tecnólogo Superior en Producción Agropeciaria
-                    Instituto Superior Tecnológico Quinindé. Quinindé, Ecuador, 2019.
-                </li>
-            </ol>
-            <p><a href="#arriba">Volver arriba</a></p>
-        </section>
+        /* ==========================================================================
+           3. CABECERA (Perfil Lateral en pantallas grandes)
+           ========================================================================== */
+        header {
+            background-color: var(--bg-card);
+            padding: 2.5rem 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            border: 1px solid var(--border);
+        }
 
-        <section>
-            <a name="experiencia"></a>
-            <h2>Experiencia Laboral</h2>
+        header h1 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
 
-            <ul>
-                <li>Profesor de matemáticas y física. Unidad Educativa Andrés Bello.</li>
-                <li>Jefe de area de ciencias exáctas. Unidad Educativa Andrés Bello.</li>
-                <li>Profesor de matemáticas preuniversitaria. Centro de Capacitación CENAPE.</li>
-                <li>Asistente de diseño gráfico. Imprenta Siva.</li>
-                <li>Jefe de Báscula. Palmeras del Duana S.A.</li>
-                <li>Auxiliar de contabilidad y secretaría Comité Paritario SSO. PALDUANA S.A..</li>
-                <li>Jefe de Báscula. INEXPAL S.A.</li>
-                <li>Jefe de Centros de Acopio (10 de Agosto, Los Jadillo, Las Maravillas). INEXPAL S.A.</li>
-            </ul>
-            <p><a href="#arriba">Volver arriba</a></p>
-        </section>
+        header h2 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            font-weight: 700;
+            line-height: 1.2;
+        }
 
-        <section>
-            <a name="docencia"></a>
-            <h2>Actividad Docente</h2>
+        header p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-top: 0.25rem;
+        }
 
-            <h3>Básica Superior</h3>
-            <ul>
-                <li>Matemática 8vo. año</li>
-                <li>Matemática 9no. año</li>
-                <li>Matemática 10mo. año</li>
+        /* Imagen de perfil moderna */
+        header img[src*="FotoCarnet"] {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 1.5rem auto;
+            border: 4px solid var(--primary-light);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            display: block;
+        }
 
-            </ul>
-            
-            <h3>Bachillerato</h3>
-            <ul>
-                <li>Matemática 1er. año bachillera</li>
-                <li>Física 1er. año bachillerato</li>
-                <li>Matemática 2do. año bachillera</li>
-                <li>Física 2do. año bachillerato</li>
-                <li>Matemática 3er. año bachillera</li>
-                <li>Física 3er. año bachillerato</li>
-            </ul>
+        /* Menú de Navegación */
+        nav h3 {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
 
+        nav {
+            border-top: 1px solid var(--border);
+            padding-top: 1.5rem;
+            margin-top: 1.5rem;
+            text-align: left;
+            color: transparent; /* Oculta los separadores "|" nativos de texto */
+        }
 
-            <p><a href="#arriba">Volver arriba</a></p>
-        </section>
+        nav a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 0.6rem 0.8rem;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            transition: all 0.2s ease;
+        }
 
-        <section>
-            <a name="publicaciones"></a>
-            <h2>Publicacion Destacada</h2>
+        nav a:hover {
+            background-color: var(--primary-light);
+            color: var(--accent);
+        }
 
-            <ul>
-                <li>Reconversión de cultivo: de palma aceitera (Elaeis guineensis) a cacao (Theobroma cacao) en Quinindé, Ecuador. (Coautor) Boletín Científico Ideas y Voces</li>
-                
-            </ul>
-            <p><a href="#arriba">Volver arriba</a></p>
-        </section>
+        nav a img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
 
-        <section>
-            <a name="contacto"></a>
-            <h2>Contacto</h2>
+        /* ==========================================================================
+           4. CONTENIDO PRINCIPAL (Secciones del CV)
+           ========================================================================== */
+        main {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
 
-            <p>Celular: 098 912 5300</p>
-            <p>Email personal: rob_rto85@hotmail.com</p>
-            <p>Email institucional: mvasesoresquininde@uteq.edu.ec</p>
-            <p>Email estudiantil: rintrigom3@uteq.edu.ec</p>
-            <p>Ciudad: Quinindé Esmeraldas - Ecuador</p>
+        section {
+            background-color: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
 
-            <p>
-                <a href="mailto:mvasesoresquininde@uteq.edu.ec">Enviar correo</a>
-            </p>
-            <p><img src="imagenes/icons/up.png"> <a href="#arriba">Volver arriba</a></p>
-        </section>
+        section h2 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-light);
+            font-weight: 700;
+        }
 
-    </main>
+        section p {
+            font-size: 1rem;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+        }
 
-    <footer>
-        <p>Imprenta SIVA - 2026</p>
-        <p><a href="#arriba">Volver arriba</a></p>
-    </footer>
+        /* Subtítulos dentro de secciones (Ej: Docencia) */
+        section h3 {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin: 1.5rem 0 0.75rem 0;
+            font-weight: 600;
+        }
 
-</body>
-</html>
+        /* ==========================================================================
+           5. LISTAS (Estudios, Experiencia y Docencia)
+           ========================================================================== */
+        /* Formación Académica (Lista ordenada) */
+        ol {
+            list-style: none;
+            counter-reset: cv-counter;
+        }
+
+        ol li {
+            counter-increment: cv-counter;
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        ol li::before {
+            content: "0" counter(cv-counter);
+            position: absolute;
+            left: 0;
+            top: 2px;
+            background-color: var(--primary-light);
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.85rem;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Listas con viñetas elegantes (Experiencia y Docencia) */
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        ul li::before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.4rem;
+            position: absolute;
+            left: 0;
+            top: -4px;
+        }
+
+        /* ==========================================================================
+           6. SECCIÓN DE CONTACTO ESPECÍFICA
+           ========================================================================== */
+        section:has(#contacto), 
+        section:last-of-type {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        /* Botón "Enviar correo" */
+        a[href^="mailto:"] {
+            display: inline-block;
+            background-color: var(--primary);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-top: 1rem;
+            transition: background-color 0.2s ease;
+            text-align: center;
+            width: fit-content;
+        }
+
+        a[href^="mailto:"]:hover {
+            background-color: var(--accent);
+        }
+
+        /* Ícono de volver arriba dentro de contacto */
+        section img[src*="up.png"] {
+            width: 14px;
+            height: 14px;
+            vertical-align: middle;
+        }
+
+        /* ==========================================================================
+           7. PIE DE PÁGINA
+           ========================================================================== */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            margin-top: 1rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* ==========================================================================
+           8. DISEÑO RESPONSIVO (Layout de Escritorio)
+           ========================================================================== */
